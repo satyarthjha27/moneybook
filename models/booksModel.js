@@ -10,6 +10,14 @@ const booksSchema = new Schema({
         type:Number,
         default:0
     },
+    cashIn:{
+        type:Number,
+        default:0
+    },
+    cashOut:{
+        type:Number,
+        default:0
+    },
     user:[],
     
 },{timestamps:true});

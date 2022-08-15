@@ -14,3 +14,17 @@ module.exports.create=async function(bookName,user){
         throw {message:error.message};
     }
 };
+
+module.exports.delete=async function(id){
+    try{
+        let data = booksModel.findByIdAndDelete({_id:id});
+        if(data){
+            return data;
+        }
+        throw {message:"Book Not Found"};
+    }
+    catch(error){
+        console.log(error);
+        throw {message:error.message};
+    }
+};
