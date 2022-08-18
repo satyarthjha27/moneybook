@@ -39,3 +39,17 @@ module.exports.update=async function(data,id){
         throw {message:error.message};
     }
 }
+
+module.exports.getTransaction = async function(bookId){
+    try{
+        let data= await tm.find({bookId});
+        if(data){
+            return data;
+        }
+        throw{message:"Book Not Found"};
+    }
+    catch(error){
+        console.log(error);
+        throw{message:error.message};
+    }
+}

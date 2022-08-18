@@ -7,6 +7,6 @@ router.use(auth.verifyToken);
 
 router.post('/create', bookController.create);
 router.delete('/delete', bookController.delete);
-
+router.get('/getbook',bookController.getBooks);
 
 module.exports = router;

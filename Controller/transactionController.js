@@ -83,3 +83,14 @@ module.exports.update = function(req,res){
         return res.status(400).send({message: "api-400-bad-request", error:error.message });
     })
 };
+
+module.exports.getTransaction = function(req,res){
+    let bookId = req.query.bookId;
+    ts.getTransaction(bookId)
+    .then((data) =>{
+        return res.status(200).send({message: "api-200", data});
+    })
+    .catch((error) => {
+        return res.status(400).send({message: "api-400-bad-request", error:error.message });
+    })
+};

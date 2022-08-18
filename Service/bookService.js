@@ -28,3 +28,20 @@ module.exports.delete=async function(id){
         throw {message:error.message};
     }
 };
+
+module.exports.getBooks=async function(books){
+    try{
+        let data = [];
+        for(var i=0;i<books.length;i++){
+            data.push(await booksModel.findOne({_id:books[i]}));
+        }
+        if(data.length>0){
+            return data;
+        }
+        throw{message:"Books Not Found"};
+    }
+    catch(error){
+        console.log(error);
+        throw {message:error.message};
+    }
+};

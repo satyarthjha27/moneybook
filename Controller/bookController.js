@@ -51,3 +51,17 @@ module.exports.delete = function(req,res){
         return res.status(400).send({message: "api-400-bad-request", error:error.message });
     })
 };
+
+module.exports.getBooks = async function(req,res){
+    let userId = req.userId;
+    let books=[];
+    let userData=await userModel.findOne({_id:userId});
+    books=userData.books;
+    bookService.getBooks(books)
+    .then((data) =>{
+        return res.status(200).send({message: "api-200", data});
+    })
+    .catch((error) => {
+        return res.status(400).send({message: "api-400-bad-request", error:error.message });
+    })
+};
