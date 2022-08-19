@@ -5,16 +5,14 @@ const bodyParser=require('body-parser');
 const cors=require('cors');
 const env = process.env.NODE_ENV || 'local';
 const mongoose = require("mongoose");
-const DB_NAME = process.env.DB_NAME;
-const DB_HOST = process.env.DB_HOST;
-const DATABSE_PORT = process.env.DATABSE_PORT;
+const mongo = process.env.MONGO;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 // Done: Set config Depending upon the Environment
 const config = {
-    dburl: `mongodb://${DB_HOST}:${DATABSE_PORT}/${DB_NAME}`
+    dburl: `${mongo}`
 }
 try {
     mongoose.connect(config.dburl, { useNewUrlParser: true, useUnifiedTopology: true });
