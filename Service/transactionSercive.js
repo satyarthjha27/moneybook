@@ -42,7 +42,7 @@ module.exports.update=async function(data,id){
 
 module.exports.getTransaction = async function(bookId){
     try{
-        let data= await tm.find({bookId});
+        let data= await tm.find({bookId}).sort({'createdAt':-1});
         if(data){
             return data;
         }

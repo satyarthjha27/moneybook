@@ -31,8 +31,8 @@ const transactionSchema = new Schema({
     bookId:{
         type:String
     },
-    date:{
-        type:Date
+    dateAndTime:{
+        type:String
     }
     
 },{timestamps:true});

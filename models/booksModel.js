@@ -19,6 +19,9 @@ const booksSchema = new Schema({
         default:0
     },
     user:[],
+    dateAndTime:{
+        type:String
+    },
     
 },{timestamps:true});
 

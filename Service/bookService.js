@@ -33,7 +33,7 @@ module.exports.getBooks=async function(books){
     try{
         let data = [];
         for(var i=0;i<books.length;i++){
-            data.push(await booksModel.findOne({_id:books[i]}));
+            data.push(await booksModel.findOne({_id:books[i]})).sort({'createdAt':-1});
         }
         if(data.length>0){
             return data;
